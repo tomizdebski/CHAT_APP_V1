@@ -1,34 +1,37 @@
-import React from 'react'
+'use client'
+import React, { useState } from 'react';
+import { useRouter } from "next/navigation";
 
-const Login = () => {
+const Login = ({socket}: any) => {
+  const [userName, setUserName] = useState('');
+  const router = useRouter();
+  const [login, setLogin] = useState(false);
+
+  const handleSubmit = (e: React.FormEvent) => {
+  
+    localStorage.setItem('userName', userName);
+    setLogin(true);
+    
+  };
   return (
-    <div id="loginModal" className="fixed z-10 inset-0 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
-        <div className="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
-          <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true"></div>
-          <span className="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
-          <div className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
-            <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
-              <h3 className="text-lg leading-6 font-medium text-gray-900" id="modal-title">
-                Login
-              </h3>
-              <div className="mt-2">
-                <input type="text" placeholder="Enter Username" name="uname" className="mt-1 p-2 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" required />
-                <input type="password" placeholder="Enter Password" name="psw" className="mt-1 p-2 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" required />
-              </div>
-            </div>
-            <div className="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
-              <button type="button" className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm">
-                Zarejestruj
-                </button>
-              <button type="submit" className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-indigo-600 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:ml-3 sm:w-auto sm:text-sm">
-                Login
-              </button>
-              
-            </div>
-          </div>
-        </div>
-      </div>
-  )
-}
+    <main className="flex min-h-screen flex-col items-center justify-between p-24 bg-[url('/images/chatting-bg.jpg')] bg-cover">
+    <form className="max-w-xl mx-auto border-2 border-blue-600 rounded-l-3xl rounded-t-3xl p-10 mt-32 bg-gray-200" onSubmit={handleSubmit}>
+      <h2 className="text-4xl font-semibold text-center">Zaloguj się do Chatu</h2>
+      
+      <input
+        type="text"
+        minLength={6}
+        name="username"
+        id="username"
+        className="mb-5 border rounded-l-3xl rounded-t-3xl px-3 py-3 mt-5 w-full focus:outline-none focus:ring-2 focus:ring-blue-300"
+        value={userName}
+        onChange={(e) => setUserName(e.target.value)}
+      />
+      <button className="w-full flex items-center justify-center gap-2 rounded-l-3xl rounded-t-3xl bg-blue-500 px-8 py-3 text-center text-sm font-semibold text-white ring-blue-300 transition duration-100 hover:bg-blue-600 md:text-base">Zaloguj</button>
+    </form>
+    </main>
 
-export default Login
+  );
+};
+
+export default Login;
