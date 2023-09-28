@@ -32,7 +32,7 @@
 }
 
 .leaveChat__btn {
-  @apply w-[150px] bg-[#d1512d] cursor-pointer text-[#eae3d2] p-2.5 border-[none] rounded-3xl;
+  @apply w-[150px] bg-[#d1512d] cursor-pointer text-[#eae3d2] p-2.5 border-[none] rounded-l-3xl rounded-t-3xl;
   outline: none;
 }
 .message__container {
@@ -48,18 +48,18 @@
   @apply w-full h-full flex items-center justify-between;
 }
 .message {
-  @apply w-4/5 h-full border p-[15px] rounded-[10px] border-solid border-[#ddd];
+  @apply w-4/5 h-full border p-[15px] rounded-3xl border-solid border-[#ddd];
   outline: none;
 }
 .sendBtn {
-  @apply rounded-3xl  w-[150px] bg-[green] text-[#eae3d2] cursor-pointer p-2.5 border-[none] hover:bg-[rgb(129,201,129)];
+  @apply rounded-l-3xl rounded-t-3xl  w-[150px] bg-[green] text-[#eae3d2] cursor-pointer p-2.5 border-[none] hover:bg-[rgb(129,201,129)];
   outline: none;
 }
 .message__recipient {
-  @apply bg-[#f5ccc2] w-[300px] text-[15px] p-2.5 rounded-[10px];
+  @apply bg-red-300 w-[300px] text-[15px] p-2.5 rounded-r-xl rounded-t-xl;
 }
 .message__sender {
-  @apply bg-[rgb(194,243,194)] max-w-[300px] text-[15px] ml-auto p-2.5 rounded-[10px];
+  @apply bg-blue-300 max-w-[300px] text-[15px] ml-auto p-2.5 rounded-l-xl rounded-t-xl;
 }
 .message__chats > p {
   @apply text-[13px];
