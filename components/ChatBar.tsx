@@ -1,8 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { IUser } from '@/types/types';
+import { SocketContext } from '@/context/SocketContext';
 
-const ChatBar = ({socket}: any) => {
+const ChatBar = () => {
+  
   const [users, setUsers] = useState<IUser[]>([]);
+  const { socket, setSocket } = useContext(SocketContext) as any;
+
+
 
   useEffect(() => {
     socket.on('newUserResponse', (data: any ) => {
@@ -17,7 +22,7 @@ const ChatBar = ({socket}: any) => {
     <div className="chat__sidebar">
       <h2>Chat</h2>
       <div>
-        <h4 className="chat__header">Aktywni urzytkownicy</h4>
+        <h4 className="chat__header">Aktywni użytkownicy</h4>
         <div className="chat__users">
           {users.map((user) => (
             <p key={user.socketID}>{user.userName}</p>

@@ -1,7 +1,7 @@
 import "@/styles/globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-
+import { SocketContextProvider } from "@/context/SocketContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -10,6 +10,9 @@ const test: string = "test";
 export const metadata: Metadata = {
   title: "Chat Next App",
   description: "Realtime chat app",
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({
@@ -20,9 +23,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        
-          {children}
-        
+        <SocketContextProvider>{children}</SocketContextProvider>
       </body>
     </html>
   );

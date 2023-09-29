@@ -1,9 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { SocketContext } from '@/context/SocketContext';
 
 
 
-const ChatFooter = ({socket}: any) => {
+const ChatFooter = () => {
+
   const [message, setMessage] = useState('');
+  const { socket, setSocket } = useContext(SocketContext) as any;
 
   const handleSendMessage = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
