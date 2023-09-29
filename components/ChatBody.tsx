@@ -1,9 +1,9 @@
 'use client'
-import { IMessage } from "@/types/types";
+import { ChatBodyProps } from "@/types/types";
 import { useRouter } from "next/navigation";
 
 
-const ChatBody = ({messages}: {messages: IMessage[]}) => {
+const ChatBody = ({ messages, lastMessageRef }: ChatBodyProps) => {
   const router = useRouter();
 
   const handleLeaveChat = () => {
@@ -42,10 +42,11 @@ const ChatBody = ({messages}: {messages: IMessage[]}) => {
           )
         )}
 
-       
+
         <div className="message__status">
           <p>Ktoś pisze...</p>
         </div>
+        <div ref={lastMessageRef} />   
       </div>
     </>
   );
