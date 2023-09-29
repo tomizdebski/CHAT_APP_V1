@@ -10,6 +10,7 @@ const Login = ({socket}: any) => {
   const handleSubmit = (e: React.FormEvent) => {
   
     localStorage.setItem('userName', userName);
+    socket.emit('newUser', { userName, socketID: socket.id });
     setLogin(true);
     
   };

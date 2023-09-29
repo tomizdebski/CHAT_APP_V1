@@ -48,7 +48,7 @@
   @apply w-full h-full flex items-center justify-between;
 }
 .message {
-  @apply w-4/5 h-full border p-[15px] rounded-3xl border-solid border-[#ddd];
+  @apply w-4/5 h-full border p-[15px] rounded-l-3xl rounded-t-3xl border-solid border-[#ddd];
   outline: none;
 }
 .sendBtn {
