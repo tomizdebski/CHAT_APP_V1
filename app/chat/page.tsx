@@ -27,9 +27,13 @@ export default function Chat() {
   }, [socket, messages]);
 
   useEffect(() => {
-    // 👇️ scroll to bottom every time messages change
+    //scroll to last message
     lastMessageRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages]);
+
+  useEffect(() => {
+    socket.on('typingResponse', (data: any) => setTypingStatus(data));
+  }, [socket]);
 
   console.log(messages);
 
@@ -38,7 +42,7 @@ export default function Chat() {
     <div className="chat">
       <ChatBar />
       <div className="chat__main">
-        <ChatBody messages={messages} lastMessageRef={lastMessageRef}/>
+        <ChatBody messages={messages} lastMessageRef={lastMessageRef} typingStatus={typingStatus}/>
         <ChatFooter />
       </div>
     </div>

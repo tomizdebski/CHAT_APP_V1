@@ -30,7 +30,7 @@ const Login = () => {
 
         <input
           type="text"
-          minLength={6}
+          
           name="username"
           id="username"
           className="mb-5 border rounded-l-3xl rounded-t-3xl px-3 py-3 mt-5 w-full focus:outline-none focus:ring-2 focus:ring-blue-300"

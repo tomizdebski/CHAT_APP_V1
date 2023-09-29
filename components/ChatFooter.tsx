@@ -8,6 +8,9 @@ const ChatFooter = () => {
   const [message, setMessage] = useState('');
   const { socket, setSocket } = useContext(SocketContext) as any;
 
+  const handleTyping = () =>
+    socket.emit('typing', `${localStorage.getItem('userName')} is typing`);
+
   const handleSendMessage = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (message.trim() && localStorage.getItem('userName')) {
@@ -29,6 +32,7 @@ const ChatFooter = () => {
           className="message"
           value={message}
           onChange={(e) => setMessage(e.target.value)}
+          onKeyDown={handleTyping}
         />
         <button className="sendBtn">Wyślij</button>
       </form>

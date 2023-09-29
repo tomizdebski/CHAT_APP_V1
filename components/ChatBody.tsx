@@ -1,14 +1,17 @@
-'use client'
+"use client";
 import { ChatBodyProps } from "@/types/types";
 import { useRouter } from "next/navigation";
 
-
-const ChatBody = ({ messages, lastMessageRef }: ChatBodyProps) => {
+const ChatBody = ({
+  messages,
+  lastMessageRef,
+  typingStatus,
+}: ChatBodyProps) => {
   const router = useRouter();
 
   const handleLeaveChat = () => {
-    localStorage.removeItem('userName');
-    router.push('/');
+    localStorage.removeItem("userName");
+    router.push("/");
   };
 
   console.log(messages);
@@ -22,10 +25,9 @@ const ChatBody = ({ messages, lastMessageRef }: ChatBodyProps) => {
         </button>
       </header>
 
-    
       <div className="message__container">
-      {messages.map((message) =>
-          message.name === localStorage.getItem('userName') ? (
+        {messages.map((message) =>
+          message.name === localStorage.getItem("userName") ? (
             <div className="message__chats" key={message.id}>
               <p className="sender__name">Ja</p>
               <div className="message__sender">
@@ -42,11 +44,10 @@ const ChatBody = ({ messages, lastMessageRef }: ChatBodyProps) => {
           )
         )}
 
-
         <div className="message__status">
-          <p>Ktoś pisze...</p>
+          <p>{typingStatus}</p>
         </div>
-        <div ref={lastMessageRef} />   
+        <div ref={lastMessageRef} />
       </div>
     </>
   );

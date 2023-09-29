@@ -10,7 +10,7 @@ import Login from "@/components/Login";
 
 export default function Home() {
 
-  const [messages, setMessages] = useState<IMessage[]>([]);
+ 
   const { socket, setSocket } = useContext(SocketContext) as any;
 
   useEffect(() => {

@@ -10,3 +10,9 @@ export interface IMessage {
     userName: string;
     socketID: string;
   }
+
+  export type ChatBodyProps = {
+    messages: IMessage[];
+    lastMessageRef: React.MutableRefObject<HTMLDivElement | null>;
+    typingStatus: any
+  };
