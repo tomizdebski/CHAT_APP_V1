@@ -1,16 +1,16 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { IUser } from '@/types/types';
+import { IMessage, IUser } from '@/types/types';
 import { SocketContext } from '@/context/SocketContext';
 
 const ChatBar = () => {
-  
+
   const [users, setUsers] = useState<IUser[]>([]);
   const { socket, setSocket } = useContext(SocketContext) as any;
 
 
 
   useEffect(() => {
-    socket.on('newUserResponse', (data: any ) => {
+    socket.on('newUserResponse', (data: IUser[]) => {
       setUsers(data);
       console.log(data);
     });
