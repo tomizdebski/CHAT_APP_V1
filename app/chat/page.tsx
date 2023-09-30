@@ -16,9 +16,7 @@ export default function Chat() {
   const lastMessageRef = useRef<HTMLDivElement | null>(null);
   const { socket, setSocket } = useContext(SocketContext) as any;
 
-  const user = localStorage.getItem("userName");
-   console.log(process.env.NEXT_PUBLIC_URL_API + '/api');
- 
+  
 
   useEffect(() => {
     function fetchMessages() {
