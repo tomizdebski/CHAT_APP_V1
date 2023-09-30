@@ -14,7 +14,7 @@ export default function Home() {
   const { socket, setSocket } = useContext(SocketContext) as any;
 
   useEffect(() => {
-    const socket = socketIO("http://localhost:4000");
+    const socket = socketIO(process.env.NEXT_PUBLIC_URL_API as string);
     setSocket(socket);
   }, []);
 

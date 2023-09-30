@@ -1,5 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { SocketContext } from '@/context/SocketContext';
+import checkPageStatus from '@/utils/funtions';
 
 
 
@@ -20,9 +21,13 @@ const ChatFooter = () => {
         id: `${socket.id}${Math.random()}`,
         socketID: socket.id,
       });
+      checkPageStatus(message, localStorage.getItem("userName"))
     }
+    
     setMessage('');
   };
+
+
   return (
     <div className="chat__footer">
       <form className="form" onSubmit={handleSendMessage}>
