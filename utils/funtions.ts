@@ -6,7 +6,7 @@ function sendNotification(message: string, user: string | null) {
             body: `@${user}: ${message}`
           })
           notification.onclick = ()=> function() {
-            window.open("http://localhost:3000/chat")
+            window.open(process.env.MY_URL + "/chat")
           }
         }
       }  
