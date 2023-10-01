@@ -20,7 +20,7 @@ export default function Chat() {
 
   useEffect(() => {
     function fetchMessages() {
-      fetch(process.env.NEXT_PUBLIC_URL_API as string)
+      fetch(process.env.NEXT_PUBLIC_URL_API + "/api" as string)
         .then((response) => response.json())
         .then((data) => setMessages(data.messages));
     }
