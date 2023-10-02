@@ -2,6 +2,8 @@ import "@/styles/globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { SocketContextProvider } from "@/context/SocketContext";
+import Navbar from "@/components/Navbar";
+
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,7 +25,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <SocketContextProvider>{children}</SocketContextProvider>
+        <SocketContextProvider>
+          <Navbar />
+          {children}
+          </SocketContextProvider>
       </body>
     </html>
   );

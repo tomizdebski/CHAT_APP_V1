@@ -1,3 +1,4 @@
+'use client'
 import React, { useState, useEffect, useContext } from 'react';
 import { IMessage, IUser } from '@/types/types';
 import { SocketContext } from '@/context/SocketContext';

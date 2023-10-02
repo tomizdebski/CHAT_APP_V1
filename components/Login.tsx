@@ -1,13 +1,17 @@
 "use client";
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { SocketContext } from "@/context/SocketContext";
+import SignInButton from "./SignInButton";
+
 
 const Login = () => {
 
   const [userName, setUserName] = useState("");
   const router = useRouter();
   const { socket, setSocket } = useContext(SocketContext) as any;
+ 
+
 
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -40,6 +44,8 @@ const Login = () => {
         <button className="w-full flex items-center justify-center gap-2 rounded-l-3xl rounded-t-3xl bg-blue-500 px-8 py-3 text-center text-sm font-semibold text-white ring-blue-300 transition duration-100 hover:bg-blue-600 md:text-base">
           Zaloguj
         </button>
+        <SignInButton />
+
       </form>
     </main>
   );
